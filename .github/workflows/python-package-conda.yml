@@ -1,0 +1,29 @@
+名字: "Sign"
+
+在:
+  workflow_dispatch:
+时间表:
+    - cron: "57 23 * * *" # 打卡时间
+
+工作:
+建筑:
+    runs-on: ubuntu-latest
+
+步骤:
+    - 用途: actions/checkout@v3
+    - 名字: 设置Python 3.8
+用途: actions/setup-python@v4
+与:
+        python-version: '3.8'
+
+    - 名字: 安装
+跑: |
+安装请求
+安装pytz
+安装pycryptome
+
+    - 名字: 开始标志
+env:
+用户: ${{ secrets.USERS }}
+跑: |
+python Main.py
